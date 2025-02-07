@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat WhatsApp Langsung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #25d366;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #25d366;
+        }
+
+        .btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1ebe57;
+        }
+
+        .whatsapp-logo {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
+        <h1>Chat WhatsApp Langsung</h1>
+        <form onsubmit="openWhatsAppChat(); return false;">
+            <label for="phoneNumber">Masukkan Nomor WhatsApp:</label>
+            <input type="text" id="phoneNumber" placeholder="Contoh: 6281234567890" required>
+            <button type="submit" class="btn">Buka Chat WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        function openWhatsAppChat() {
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            phoneNumber = phoneNumber.replace(/\D/g, '');
+            if (phoneNumber.length < 10) {
+                alert("Masukkan nomor WhatsApp yang valid.");
+                return;
+            }
+            window.open('https://wa.me/' + phoneNumber, '_blank');
+        }
+    </script>
+
+</body>
+</html>
